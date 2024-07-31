@@ -37,6 +37,10 @@ export default function App() {
     }
          
     console.table(listaPedidos);
+    const removerItem= (id)=> {
+        let listaAux= listaPedidos.filter((pedido)=> pedido.id !== id);
+        setPedidos(listaAux);
+    }
     return (
        <div className="bloco-principal">
          <div className="bloco-produtos">
@@ -56,9 +60,11 @@ export default function App() {
                 <tr>
                     <td>{pedido.item}</td>
                     <td>{pedido.preco}</td>
-                    
+                    <td><button onClick={()=> removerItem(pedido.id)}>X</button></td>
                 </tr>)
             }
+              
+
          </table>
          </div>
 
